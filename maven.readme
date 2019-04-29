@@ -1,0 +1,135 @@
+MAVEN SPRING BOOT HIBERNATE MYSQL
+
+A. MAVEN
+
+1. Add the bin directory of the created directory apache-maven-3.6.1 to the PATH environment variable (run mvn -v)
+
+2. Create the project
+
+mvn archetype:generate -DgroupId=com.mymaventutorial.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+3. In POM.xml
+
+<build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      </plugins>
+    </pluginManagement>
+</build>
+
+4. Build the project   compile
+
+mvn package
+
+5. test an run the app     run
+
+java -cp target/my-app-1.0-SNAPSHOT.jar com.mymaventutorial.app.App
+
+6. compile
+
+mvn compile
+
+B spring boot
+### https://howtodoinjava.com/spring-boot-tutorials/
+1. in POM.xml
+
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.4.RELEASE</version>
+    <relativePath />
+</parent>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+spring boot starter template list
+
+https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-starters/
+
+2. then run
+
+mvn package
+
+3. create file in  \my-app\src\main\resources\aplication.properties
+
+4. in .gitingnore 
+
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+5. Bootstrap application
+
+To run the application, we need to use @SpringBootApplication annotation. Behind the scenes, that’s equivalent to @Configuration, @EnableAutoConfiguration, and @ComponentScan together.
+
+code of main class:
+
+@SpringBootApplication 
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello this work!" );
+        SpringApplication.run(Application.class, args);
+    }
+}
+
+In application.properties
+
+### Server port #########
+server.port=8080
+  
+### Context root ########
+server.contextPath=/home
+
+In pom.xml
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+
+and check that main class is set correctly
+
+<start-class>com.mymaventutorial.app.App</start-class> 
+
+
+

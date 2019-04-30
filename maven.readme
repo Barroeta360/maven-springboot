@@ -37,8 +37,11 @@ java -cp target/my-app-1.0-SNAPSHOT.jar com.mymaventutorial.app.App
 6. compile
 
 mvn compile
-
-B spring boot
+*
+*
+********** B spring boot
+*
+*
 ### https://howtodoinjava.com/spring-boot-tutorials/
 1. in POM.xml
 
@@ -131,5 +134,58 @@ and check that main class is set correctly
 
 <start-class>com.mymaventutorial.app.App</start-class> 
 
+6. Run mvn clean install then mvn spring-boot:roon
 
+*
+*
+***********C Add JPA Hibernate to project
+*
+*
+
+1 POM.XML
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        
+2. Aplication.properties
+
+# ===============================
+# = MYSQL
+# ===============================
+spring.datasource.driverClassName= com.mysql.jdbc.Driver
+spring.datasource.url= jdbc:mysql://localhost:3306/dev_maven?useSSL=false&&createDatabaseIfNotExist=true
+spring.datasource.username= root
+spring.datasource.password= root2018
+# REstart database state
+spring.datasource.initialization-mode=always
+        
+# ===============================
+# = JPA / HIBERNATE
+# ===============================
+# Use spring.jpa.properties.* for Hibernate native properties (the prefix is
+# stripped before adding them to the entity manager).
+
+        # Show or not log for each sql query
+spring.jpa.show-sql=true
+
+
+## Hibernate Properties
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+
+# Hibernate ddl auto (create, create-drop, update): with "update" the database
+# schema will be automatically updated accordingly to java entities found in
+# the project
+spring.jpa.hibernate.ddl-auto = update
+
+3. Run mvn clean install and mvn spring-boot:run
+
+
+        
 

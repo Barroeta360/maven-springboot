@@ -186,6 +186,14 @@ spring.jpa.hibernate.ddl-auto = update
 
 3. Run mvn clean install and mvn spring-boot:run
 
+*
+*
+*********** Run .jar file 
+*
+*
+java -jar target/my-app-1.0-SNAPSHOT.jar
+
+
 
         
 

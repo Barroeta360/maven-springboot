@@ -17,7 +17,7 @@ public class App
     
     public static void main( String[] args )
     {
-        System.out.println( "Hello this work!" );
+        System.out.println( "Hello this work automatic!" );
         SpringApplication.run(App.class, args);
     }
 }

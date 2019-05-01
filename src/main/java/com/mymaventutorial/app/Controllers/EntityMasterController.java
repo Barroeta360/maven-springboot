@@ -5,7 +5,7 @@
  */
 package com.mymaventutorial.app.Controllers;
 
-import Rest.EntityMasterRest;
+import com.mymaventutorial.app.Rest.EntityMasterRest;
 import java.util.ArrayList;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -35,16 +36,29 @@ public class EntityMasterController {
         return null;
     }*/
     
+    
+    
+    
     @GetMapping()
-    public @ResponseBody List<EntityMasterRest> get() {
+    public @ResponseBody List<EntityMasterRest> get(@RequestParam(defaultValue="Maximo", required=false) String name ) {
         ArrayList<EntityMasterRest> list = new ArrayList<>();
         EntityMasterRest rest = new EntityMasterRest();
-        //srest.setId(new Long(1));
-        rest.setName("Maximo Daniel");
+        rest.setId(new Long(1));
+        rest.setName(name);
         list.add(rest);
         return list;
     }
     
+    @PostMapping()
+    public @ResponseBody List<EntityMasterRest> post(@RequestBody EntityMasterRest input) {
+        ArrayList<EntityMasterRest> list = new ArrayList<>();
+        input.setId(new Long(2));
+        list.add(input);
+        return list;
+    }
+    
+    
+    /*
     @GetMapping("/{id}")
     public Object get(@PathVariable String id) {
         return null;
@@ -69,5 +83,5 @@ public class EntityMasterController {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
     public void handleError() {
     }
-    
+    */
 }

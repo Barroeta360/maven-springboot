@@ -20,4 +20,6 @@ public class App
         System.out.println( "Hello this work automatic!" );
         SpringApplication.run(App.class, args);
     }
+    
+    
 }

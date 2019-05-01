@@ -73,6 +73,9 @@
             <version>2.3.0</version>
             <type>jar</type>
         </dependency>
+        <!-- 
+        * automatic restart 
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>

@@ -5,6 +5,8 @@
  */
 package com.mymaventutorial.app.Controllers;
 
+import Rest.EntityMasterRest;
+import java.util.ArrayList;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
@@ -33,8 +36,13 @@ public class EntityMasterController {
     }*/
     
     @GetMapping()
-    public String get() {
-        return "Hello Entity !!!";
+    public @ResponseBody List<EntityMasterRest> get() {
+        ArrayList<EntityMasterRest> list = new ArrayList<>();
+        EntityMasterRest rest = new EntityMasterRest();
+        //srest.setId(new Long(1));
+        rest.setName("Maximo Daniel");
+        list.add(rest);
+        return list;
     }
     
     @GetMapping("/{id}")

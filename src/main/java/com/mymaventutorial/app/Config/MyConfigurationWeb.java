@@ -25,7 +25,7 @@ public class MyConfigurationWeb extends WebMvcConfigurationSupport {
     /*
     * Ignorar los campos no incluidos en un objeto json a un objeto java
     *
-    */
+    
     @Bean
     public MappingJackson2HttpMessageConverter customJackson2HttpMessageConverter() {
         MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
@@ -39,6 +39,6 @@ public class MyConfigurationWeb extends WebMvcConfigurationSupport {
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(customJackson2HttpMessageConverter());
         super.addDefaultHttpMessageConverters(converters);
-    }
+    }*/
 
 }

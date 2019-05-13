@@ -9,6 +9,7 @@ package com.mymaventutorial.app.Config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -28,9 +29,20 @@ public class MyConfiguration implements WebMvcConfigurer{
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/entitymaster")
-                        .allowedOrigins("http://localhost:4200")
-                        .allowedMethods("POST", "GET", "DELETE", "PUT");
+                        //.allowedOrigins("http://localhost:4200")
+                        .allowedOrigins("*")
+                        .allowedMethods("POST", "GET", "DELETE", "PUT", "OPTIONS");
+
+                registry.addMapping("/country")
+                        //.allowedOrigins("http://localhost:4200")
+                        .allowedOrigins("*")
+                        .allowedMethods("POST", "GET", "DELETE", "PUT", "OPTIONS");
             }
         };
+    }
+    
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
     }
 }

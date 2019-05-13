@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mymaventutorial.app.Rest;
-
-import java.io.Serializable;
+package com.mymaventutorial.app.DTO;
 
 /**
  *
  * @author Keton
  */
-public class EntityMasterRest implements Serializable{
+public class CountryRest {
     private Long id;
     private String name;
+    private String code;
 
     public Long getId() {
         return id;
@@ -30,7 +29,14 @@ public class EntityMasterRest implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-    
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
     
     
 }

@@ -5,7 +5,7 @@
  */
 package com.mymaventutorial.app.Controllers;
 
-import com.mymaventutorial.app.Rest.EntityMasterRest;
+import com.mymaventutorial.app.DTO.EntityMasterRest;
 import java.util.ArrayList;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +43,7 @@ public class EntityMasterController {
     public @ResponseBody List<EntityMasterRest> get(@RequestParam(defaultValue="Maximo", required=false) String name ) {
         ArrayList<EntityMasterRest> list = new ArrayList<>();
         EntityMasterRest rest = new EntityMasterRest();
-        rest.setId(new Long(1));
+        rest.setId(new Long(5));
         rest.setName(name);
         list.add(rest);
         return list;
@@ -52,7 +52,7 @@ public class EntityMasterController {
     @PostMapping()
     public @ResponseBody List<EntityMasterRest> post(@RequestBody EntityMasterRest input) {
         ArrayList<EntityMasterRest> list = new ArrayList<>();
-        input.setId(new Long(2));
+        input.setId(new Long(3));
         list.add(input);
         return list;
     }

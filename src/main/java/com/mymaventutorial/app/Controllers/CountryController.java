@@ -76,7 +76,7 @@ public class CountryController {
         if(entity != null)
             return new ResponseEntity<>(service.mapToRest(entity), HttpStatus.CREATED);
         else
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The object cannot be updated");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The object cannot be created");
     }
     
     @DeleteMapping("/{id}")

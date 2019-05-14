@@ -24,6 +24,9 @@ public class AppEntityMaster implements Serializable {
     private Long id;
     
     private String name;
+    
+    private String password;
+    
 
     public AppEntityMaster() {
     }
@@ -42,6 +45,14 @@ public class AppEntityMaster implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

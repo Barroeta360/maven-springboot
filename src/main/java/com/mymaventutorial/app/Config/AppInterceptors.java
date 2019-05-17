@@ -38,8 +38,8 @@ public class AppInterceptors implements HandlerInterceptor {
         
         
         //litle example of security interceptor
-        if("GET".equals(request.getMethod()));
-            //return true;
+        if("GET".equals(request.getMethod()))
+            return true;
         
         Long idUser = new Long(request.getHeader("idUser"));
         if(request.getHeader("idUser") != null && emService.getById(idUser) != null)

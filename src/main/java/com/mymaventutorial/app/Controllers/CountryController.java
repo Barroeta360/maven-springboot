@@ -37,6 +37,9 @@ public class CountryController {
     @Autowired
     private CountryService service;
     
+    @Autowired
+    private CountryRest countryBean;
+    
     @GetMapping()
     public @ResponseBody List<CountryRest> list() {
         return service.mapToRest(service.getAll());
@@ -44,6 +47,9 @@ public class CountryController {
     
     @GetMapping("/{id}")
     public @ResponseBody CountryRest get(@PathVariable Long id) {
+        countryBean.setName("Venezuela");
+        System.out.println("********\n\n\n*********\n"
+                + countryBean.getName());
         return service.mapToRest(service.getById(id));
     }
     

@@ -35,6 +35,7 @@ public class AppInterceptors implements HandlerInterceptor {
         System.out.println(request.getHeader("token"));
         System.out.println("LocalPort: "+request.getLocalPort());
         System.out.println("Protocol: "+request.getProtocol());
+        System.out.println("Handler - " + handler.toString());
         
         
         //litle example of security interceptor

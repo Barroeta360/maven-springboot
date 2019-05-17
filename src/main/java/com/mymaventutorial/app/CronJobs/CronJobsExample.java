@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 //@EnableScheduling
 public class CronJobsExample {
     
-    @Scheduled(cron = "0 28 1 ? * *")
+    @Scheduled(cron = "0 28 1 ? * *")//todos los dias del mes, todos los meses, a la 1 y 28 de la mañana
     public void printCron(){
         System.err.println("/*\n*\n*\n*\n*\n*\n*\n\t\t\tCron works\n*\n*\n*\n*\n*\n*\n*/");
     }

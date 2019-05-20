@@ -19,7 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * @author Keton
  */
 @Configuration
-public class MyConfigurationWeb extends WebMvcConfigurationSupport {
+public class WebMVCConfigSupport extends WebMvcConfigurationSupport {
      
     
     /*

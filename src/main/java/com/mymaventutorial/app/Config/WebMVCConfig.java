@@ -21,22 +21,23 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 @Configuration
 //@ConfigurationProperties(prefix = "prefix")
-public class MyConfiguration implements WebMvcConfigurer{
+public class WebMVCConfig implements WebMvcConfigurer{
     
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/entitymaster")
-                        //.allowedOrigins("http://localhost:4200")
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:4200")
                         .allowedOrigins("*")
-                        .allowedMethods("POST", "GET", "DELETE", "PUT", "OPTIONS");
-
+                        //.allowedMethods("POST", "GET", "DELETE", "PUT", "OPTIONS", "HEAD");
+                        .allowedMethods("*");
+/*
                 registry.addMapping("/country")
-                        //.allowedOrigins("http://localhost:4200")
+                        .allowedOrigins("http://localhost:4200")
                         .allowedOrigins("*")
-                        .allowedMethods("POST", "GET", "DELETE", "PUT", "OPTIONS");
+                        .allowedMethods("POST", "GET", "DELETE", "PUT", "OPTIONS");*/
             }
         };
     }

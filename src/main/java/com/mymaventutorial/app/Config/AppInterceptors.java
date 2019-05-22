@@ -36,11 +36,8 @@ public class AppInterceptors implements HandlerInterceptor {
             HttpServletResponse response,
             Object handler) throws Exception {
 
-        System.out.println("/********************** Pre Handle method is Calling ************/");
-        System.out.println(request.getHeader("token"));
-        System.out.println("LocalPort: " + request.getLocalPort());
-        System.out.println("Protocol: " + request.getProtocol());
-        System.out.println("Handler - " + handler.toString());
+        System.out.println("\n*\n*\n*/********************** Pre Handle method is Calling ************/\n*\n*\n*");
+        System.out.println(request.getRequestURI());
         
         //Hard validate METHOD.OPTIONS 
         if ("OPTIONS".equals(request.getMethod())) {
@@ -52,7 +49,7 @@ public class AppInterceptors implements HandlerInterceptor {
         }
 
         //litle example of security interceptor
-        //avoid any validation to method GET
+        //avoid any validation to method GET and OPTIONS
         if ("GET".equals(request.getMethod()) || "OPTIONS".equals(request.getMethod())) {
             return true;
         }

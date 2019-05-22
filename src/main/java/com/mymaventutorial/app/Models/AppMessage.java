@@ -18,7 +18,7 @@ import javax.persistence.Id;
  * @author Keton
  */
 @Entity
-public class AppMessage implements Serializable {
+public class AppMessage extends Auditable implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id

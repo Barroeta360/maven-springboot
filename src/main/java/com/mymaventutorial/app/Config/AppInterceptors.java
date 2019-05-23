@@ -47,7 +47,8 @@ public class AppInterceptors implements HandlerInterceptor {
             response.setHeader(HEADERS_NAME, "Origin, X-Requested-With, Content-Type, Accept");
             response.setHeader(MAX_AGE_NAME, "3600");
         }
-
+        return true;
+        /*
         //litle example of security interceptor
         //avoid any validation to method GET and OPTIONS
         if ("GET".equals(request.getMethod()) || "OPTIONS".equals(request.getMethod())) {
@@ -65,7 +66,7 @@ public class AppInterceptors implements HandlerInterceptor {
             
         //error user id does not exist or no header present in request
         response.setStatus(403);
-        return false;//remeber to change it 
+        return false;//remeber to change it */
     }
 
     @Override

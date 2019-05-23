@@ -5,7 +5,8 @@
  */
 package com.mymaventutorial.app.DAO;
 
-import com.mymaventutorial.app.Models.AppUser;
+import com.mymaventutorial.app.Models.AppCountry;
+import com.mymaventutorial.app.Models.AppState;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,12 +14,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Keton
  */
-public interface UserRepository extends JpaRepository<AppUser, Long> {
+public interface StateRepository extends JpaRepository<AppState, Long> {
     
-    AppUser findByEmailAndPassword(String email, String password);
-    
-    List<AppUser> findByUserType(Long userTypeId);
-    
-    AppUser findByEntityMaster(Long id);
+    List<AppState> findByCountry(AppCountry country);
     
 }

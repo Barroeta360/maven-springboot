@@ -7,7 +7,6 @@ package com.mymaventutorial.app.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,30 +23,40 @@ import org.hibernate.annotations.OnDeleteAction;
  * @author Keton
  */
 @Entity
-public class AppPhone extends Auditable implements Serializable {
+public class AppState extends Auditable implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private String code;
-    
-    @Column(name="prefix_number")
-    private String prefix;
-    
-    private String phone;
-    
-    private String Description;
+    @NotNull
+    private String name;
     
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "entity_master", nullable = false)
+    @JoinColumn(name = "country_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private AppEntityMaster entityMaster;
+    private AppCountry country;
 
-    public AppPhone() {
+    public AppState() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public AppCountry getCountry() {
+        return country;
+    }
+
+    public void setCountry(AppCountry country) {
+        this.country = country;
     }
 
     public Long getId() {
@@ -56,46 +65,6 @@ public class AppPhone extends Auditable implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String Description) {
-        this.Description = Description;
-    }
-
-    public AppEntityMaster getEntityMaster() {
-        return entityMaster;
-    }
-
-    public void setEntityMaster(AppEntityMaster entityMaster) {
-        this.entityMaster = entityMaster;
     }
 
     @Override
@@ -108,10 +77,10 @@ public class AppPhone extends Auditable implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof AppPhone)) {
+        if (!(object instanceof AppState)) {
             return false;
         }
-        AppPhone other = (AppPhone) object;
+        AppState other = (AppState) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -120,7 +89,7 @@ public class AppPhone extends Auditable implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mymaventutorial.app.Models.AppPhone[ id=" + id + " ]";
+        return "AppState{" + "id=" + id + ", name=" + name + ", country=" + country + '}';
     }
     
 }
